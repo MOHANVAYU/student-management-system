@@ -31,7 +31,6 @@
         <table class="table table-hover">
             <thead style="background-color: #54ADFF ;color: #e7feff;">
                 <tr>
-                    <th scope="col">Sr No.</th>
                     <th scope="col">Roll No</th>
                     <th scope="col">First name</th>
                     <th scope="col">Last name</th>
@@ -39,8 +38,7 @@
             </thead>
             <tbody>
                 <% data.forEach((item)=>{ %>
-                    <tr  onclick="window.location='/profile/<%= item.sr_no %>'">
-                        <td><%=item.sr_no%></td>
+                    <tr  onclick="window.location='/profile/<%= item.roll_no %>'">
                         <td><%=item.roll_no%></td>
                         <td><%=item.first_name%></td>
                         <td><%=item.last_name%></td>

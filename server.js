@@ -31,8 +31,8 @@ app.get('/',(req,res)=>{
     })
 })
 
-app.get('/profile/:sr_no',(req,res)=>{
-    const sql=`select * from batch where sr_no=${req.params.sr_no}`;
+app.get('/profile/:roll_no',(req,res)=>{
+    const sql=`select * from batch where roll_no=${req.params.roll_no}`;
     connection.query(sql,(err,result)=>{
         if(err){
             return;
@@ -46,7 +46,6 @@ app.get('/add_student',(req,res)=>{
 })
 
 app.post('/add_student', (req, res) => {
-    const rollNo = req.body.roll_no;
     const firstName = req.body.first_name;
     const lastName = req.body.last_name;
     const age = req.body.age;
@@ -56,8 +55,8 @@ app.post('/add_student', (req, res) => {
     const fatherName = req.body.father_name;
     const motherName = req.body.mother_name;
   
-    const sql = `INSERT INTO batch (roll_no, first_name, last_name, age, email, phone_no, blood_grp, father_name, mother_name)
-                 VALUES (${rollNo}, '${firstName}', '${lastName}', ${age}, '${email}', '${phoneNo}', '${bloodGroup}', '${fatherName}', '${motherName}')`;
+    const sql = `INSERT INTO batch (first_name, last_name, age, email, phone_no, blood_grp, father_name, mother_name)
+                 VALUES ('${firstName}', '${lastName}', ${age}, '${email}', '${phoneNo}', '${bloodGroup}', '${fatherName}', '${motherName}')`;
   
     connection.query(sql, (err, result) => {
       if (err) {
